@@ -33,7 +33,7 @@ function NavbarComponent() {
     <Navbar
       expand="lg"
       className="bg-dark bg-opacity-75 navbar-dark"
-      sticky="top"
+      // sticky="top"
     >
       <Container>
         <Navbar.Brand href="#home">
