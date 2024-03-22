@@ -6,6 +6,7 @@ import Product from "./Pages/Product";
 import LoginSignUp from "./Pages/LoginSignUp";
 import ShopCategory from "./Pages/ShopCategory";
 import ScrollToTop from "./Components/ScrollToTop";
+import Cart from "./Pages/Cart";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
           <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<Product />} />
           </Route>
-          <Route path="/cart" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<LoginSignUp />} />
         </Routes>
       </BrowserRouter>

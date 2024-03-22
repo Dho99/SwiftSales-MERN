@@ -12,42 +12,45 @@ import "../assets/css/Breadcrumb.css";
 const ShopCategory = (props) => {
   const allProductContext = useContext(ShopContext);
   const allProduct = allProductContext.allProducts;
-  return ( 
+  const products = props;
+  return (
     <>
-       <Container>
+      <Container>
         <Breadcrumb>
           <Breadcrumb.Item>
             <Link to="/">Home</Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>
-            <Link to={`/category/${props.category}`}>{props.category}</Link>
+            <Link to={`/category/${products.category}`}>
+              {products.category}
+            </Link>
           </Breadcrumb.Item>
         </Breadcrumb>
       </Container>
-    <div className="container">
-      <h1 className="text-light text-center">{props.category}</h1>
-      <Container className="py-3 d-flex justify-content-center">
-        <Row>
-          {allProduct.map((p, i) => {
-            if (p.category === props.category) {
-              return (
-                <Col key={i}>
-                  <Item
-                    id={p.id}
-                    image={p.image}
-                    product_name={p.product_name}
-                    old_price={formatRupiah(p.old_price)}
-                    new_price={formatRupiah(p.new_price)}
-                  />
-                </Col>
-              );
-            } else {
-              return null;
-            }
-          })}
-        </Row>
-      </Container>
-    </div>
+      <div className="container">
+        <h1 className="text-light text-center">{products.category}</h1>
+        <Container className="my-4">
+          <Row>
+            {allProduct.map((p, i) => {
+              if (p.category === products.category) {
+                return (
+                  <Col key={i} className="d-flex justify-content-center">
+                    <Item
+                      id={p.id}
+                      image={p.image}
+                      product_name={p.product_name}
+                      old_price={formatRupiah(p.old_price)}
+                      new_price={formatRupiah(p.new_price)}
+                    />
+                  </Col>
+                );
+              } else {
+                return null;
+              }
+            })}
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };

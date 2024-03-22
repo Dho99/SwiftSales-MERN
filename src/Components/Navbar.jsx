@@ -4,15 +4,19 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/Images/logo.png";
 import allProducts from "../assets/Dummy/allProduct";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
 import "../assets/css/Navbar.css";
+// import { ShopContext } from "../Context/ShopContext";
 
 function NavbarComponent() {
   const [categoriesState, setCategory] = useState([]);
   const [sluggedCategory, setSluggedCategory] = useState([]);
   const [menu, setMenu] = useState("home");
+  // const {cartItems} = useContext(ShopContext);
+  // console.log(Object.values(cartItems));
+  // const countCartItems = Object.values(cartItems).length;
 
   useEffect(() => {
     const categoriesArray = [];
@@ -106,7 +110,8 @@ function NavbarComponent() {
               >
                 <i className="bi bi-cart h5 m-auto"></i>
                 <Badge bg="secondary" className="m-auto ms-2">
-                  9
+                  test
+                  {/* {countCartItems > 0 ? countCartItems : 0} */}
                 </Badge>
               </Link>
             </Nav.Link>
